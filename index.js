@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 app.use(express.json);
 
+
 // default error handling
 
 function errorHandler(err, req, res, next) {
