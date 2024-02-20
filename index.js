@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const todohandler = require("./routeHandler/todoHandler");
 // initiate express app
 const app = express();
 app.use(express.json);
@@ -15,7 +16,10 @@ mongoose
     console.log(`Error ${err}`);
   });
 
-  
+// application route
+
+app.use("/todo", todohandler);
+
 // default error handling
 function errorHandler(err, req, res, next) {
   if (res.headerSent) {
