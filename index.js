@@ -4,9 +4,19 @@ const mongoose = require("mongoose");
 const app = express();
 app.use(express.json);
 
+// connect to database
 
+mongoose
+  .connect("mongodb://localhost:27017/todos")
+  .then(() => {
+    console.log("Connection Successfull");
+  })
+  .catch((err) => {
+    console.log(`Error ${err}`);
+  });
+
+  
 // default error handling
-
 function errorHandler(err, req, res, next) {
   if (res.headerSent) {
     return next(err);
